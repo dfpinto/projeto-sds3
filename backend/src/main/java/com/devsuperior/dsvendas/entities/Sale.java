@@ -3,6 +3,7 @@ package com.devsuperior.dsvendas.entities;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,6 @@ public class Sale {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
 	private Integer visited;
 	private Integer deals;
 	private Double amount;
@@ -30,9 +30,8 @@ public class Sale {
 	public Sale() {
 	}
 
-	public Sale(Long id, String name, Integer visited, Integer deals, Double amount, LocalDate date) {
+	public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date) {
 		this.id = id;
-		this.name = name;
 		this.visited = visited;
 		this.deals = deals;
 		this.amount = amount;
@@ -45,14 +44,6 @@ public class Sale {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Integer getVisited() {

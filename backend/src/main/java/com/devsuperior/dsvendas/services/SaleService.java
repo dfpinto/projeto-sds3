@@ -23,7 +23,7 @@ public class SaleService {
 	@Autowired
 	private SellerRepository repositorySeller;
 	
-	@Transactional(readOnly = true) // além de anotar pra jpa que não deve controlar transação, tambem serve para cachear os dados, pois sem essa anotação a jpa continua realizando múltiplas queries em tb_seller
+	@Transactional(readOnly = true) // o cache abaixo só funciona com essa anotação
 	public Page<SaleDTO> findAll(Pageable pageable){
 		repositorySeller.findAll(); // Joga os vendedores pro cache do hibernate. Fiz isso pelo número reduzido de vendedores. 
 		return repositorySale.findAll(pageable).map(x -> new SaleDTO(x));

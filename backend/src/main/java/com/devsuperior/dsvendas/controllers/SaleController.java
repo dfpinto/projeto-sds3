@@ -24,7 +24,6 @@ public class SaleController {
 
 	@GetMapping
 	public ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable){
-		
 		Page<SaleDTO> rsSeller = serviceSale.findAll(pageable);
 		return ResponseEntity.ok(rsSeller);
 	}

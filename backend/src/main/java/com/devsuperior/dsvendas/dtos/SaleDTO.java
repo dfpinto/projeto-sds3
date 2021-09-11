@@ -10,7 +10,6 @@ public class SaleDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private String name;
 	private Integer visited;
 	private Integer deals;
 	private Double amount;
@@ -22,7 +21,6 @@ public class SaleDTO implements Serializable{
 
 	public SaleDTO(Sale sale) {
 		this.id = sale.getId();
-	    this.name = sale.getName();
 		this.visited = sale.getVisited();
 		this.deals = sale.getDeals();
 		this.amount = sale.getAmount();
@@ -44,14 +42,6 @@ public class SaleDTO implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Integer getVisited() {
