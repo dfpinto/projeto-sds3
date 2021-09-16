@@ -28,6 +28,12 @@ public class SaleController {
 		return ResponseEntity.ok(rsSeller);
 	}
 
+	@GetMapping("/testejoin")
+	public ResponseEntity<Page<SaleDTO>> findSales(Pageable pageable){
+		Page<SaleDTO> rsSeller = serviceSale.findSales(pageable);
+		return ResponseEntity.ok(rsSeller);
+	}
+
 	@GetMapping(value = "/amount-by-seller")
 	public ResponseEntity<List<AmountSellerDTO>> amountGroupBySeller(){
 		return ResponseEntity.ok(serviceSale.amountGroupBySeller());

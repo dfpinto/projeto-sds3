@@ -30,6 +30,11 @@ public class SaleService {
 	}
 
 	@Transactional(readOnly = true)
+	public Page<SaleDTO> findSales(Pageable pageable){
+		return repositorySale.findSales(pageable).map(x -> new SaleDTO(x));
+	}
+
+	@Transactional(readOnly = true)
 	public List<AmountSellerDTO> amountGroupBySeller(){
 		return repositorySale.amountGroupBySeller();
 	}
